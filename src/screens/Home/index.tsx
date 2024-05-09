@@ -5,6 +5,7 @@ import { Concluidas, Container, ContainerInfo, Criadas, Indicador, InfoConcluida
 import { TaskDTO } from "../../dtos/TaskDTO";
 import { Alert, FlatList } from "react-native";
 import { uuid } from "../../utils/uuid";
+import { Empty } from "../../components/Empty";
 
 export function Home() {
     const [tasks, setTasks] = useState<TaskDTO[]>([])
@@ -78,6 +79,8 @@ export function Home() {
                         onTaskDeleted={() => ExcluirTask(item.id)}
                         onTaskDone={() => ConcluidaTask(item.id)} id={""}                    />
                 ) }
+
+                ListEmptyComponent={<Empty />}
             />
         </Container>
     )
